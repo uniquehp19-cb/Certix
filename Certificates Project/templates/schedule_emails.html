@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Schedule Send{% endblock %}
+{% block heading %}Schedule Send (Alarm Mode){% endblock %}
+
+{% block content %}
+<div class="panel panel-narrow">
+  <p class="panel-desc">Choose a time (24-hour format). The app will wait in the background and automatically send all certificates at that time. Keep the Flask app/server running.</p>
+  <form method="POST" class="form">
+    <label>Target Time</label>
+    <input type="time" name="target_time" required>
+    <button type="submit" class="btn btn-primary">Schedule Send</button>
+  </form>
+</div>
+
+<div class="panel">
+  <div class="panel-header"><h2>Live Progress</h2></div>
+  <div id="job-summary" class="job-summary"></div>
+  <div id="job-log" class="job-log"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+pollJobStatus();
+</script>
+{% endblock %}

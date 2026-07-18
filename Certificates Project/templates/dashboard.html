@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — KITE Certificate Portal{% endblock %}
+{% block heading %}Overview{% endblock %}
+
+{% block content %}
+<div class="card-grid">
+  <div class="stat-card">
+    <span class="stat-label">Total Participants</span>
+    <span class="stat-value">{{ stats.total }}</span>
+  </div>
+  <div class="stat-card stat-success">
+    <span class="stat-label">Certificates Sent</span>
+    <span class="stat-value">{{ stats.sent }}</span>
+  </div>
+  <div class="stat-card stat-warning">
+    <span class="stat-label">Pending</span>
+    <span class="stat-value">{{ stats.pending }}</span>
+  </div>
+  <div class="stat-card stat-danger">
+    <span class="stat-label">Invalid Emails</span>
+    <span class="stat-value">{{ stats.invalid }}</span>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel-header">
+    <h2>Success Rate</h2>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: {{ stats.success_rate }}%;"></div>
+    </div>
+    <span class="progress-label">{{ stats.success_rate }}%</span>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel-header">
+    <h2>Quick Actions</h2>
+  </div>
+  <div class="quick-actions">
+    <a href="{{ url_for('add_data') }}" class="btn btn-outline">+ Add Participant</a>
+    <a href="{{ url_for('generate_certificates') }}" class="btn btn-outline">Generate Certificates</a>
+    <a href="{{ url_for('send_emails') }}" class="btn btn-primary">Send Emails Now</a>
+  </div>
+</div>
+{% endblock %}

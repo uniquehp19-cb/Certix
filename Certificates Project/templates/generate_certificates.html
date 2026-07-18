@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Generate Certificates{% endblock %}
+{% block heading %}Generate Certificates{% endblock %}
+
+{% block content %}
+<div class="panel panel-narrow">
+  <p class="panel-desc">This generates a certificate PDF for every participant currently in the sheet.</p>
+  <form method="POST">
+    <button type="submit" class="btn btn-primary">Generate All Certificates</button>
+  </form>
+</div>
+
+<div class="panel">
+  <div class="panel-header"><h2>Generated Certificates</h2></div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>#</th><th>File Name</th><th>Action</th></tr></thead>
+      <tbody>
+        {% for cert in certs %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ cert }}</td>
+          <td><a class="btn btn-outline btn-sm" href="{{ url_for('download_certificate', filename=cert) }}">Download</a></td>
+        </tr>
+        {% else %}
+        <tr><td colspan="3" class="empty-row">No certificates generated yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

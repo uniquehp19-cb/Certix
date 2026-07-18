@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}KITE Certificate Portal{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">K</div>
+      <div class="brand-text">
+        <span class="brand-title">KITE</span>
+        <span class="brand-sub">Certificate Portal</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="{{ url_for('dashboard') }}" class="nav-item {% if request.path == '/' %}active{% endif %}">
+        <span class="nav-icon">⌂</span> Dashboard
+      </a>
+      <a href="{{ url_for('add_data') }}" class="nav-item {% if request.path == '/add' %}active{% endif %}">
+        <span class="nav-icon">+</span> Add Participant
+      </a>
+      <a href="{{ url_for('view_data') }}" class="nav-item {% if request.path == '/view' %}active{% endif %}">
+        <span class="nav-icon">▦</span> View Data
+      </a>
+      <a href="{{ url_for('delete_row') }}" class="nav-item {% if request.path == '/delete' %}active{% endif %}">
+        <span class="nav-icon">✕</span> Delete Row
+      </a>
+      <a href="{{ url_for('generate_certificates') }}" class="nav-item {% if request.path == '/generate' %}active{% endif %}">
+        <span class="nav-icon">⎙</span> Generate Certificates
+      </a>
+      <a href="{{ url_for('send_emails') }}" class="nav-item {% if request.path == '/send' %}active{% endif %}">
+        <span class="nav-icon">✉</span> Send Emails Now
+      </a>
+      <a href="{{ url_for('schedule_emails') }}" class="nav-item {% if request.path == '/schedule' %}active{% endif %}">
+        <span class="nav-icon">⏱</span> Schedule Send
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">KITE Team © {{ 2026 }}</div>
+  </aside>
+
+  <main class="content">
+
+    <div class="topbar">
+      <h1>{% block heading %}Dashboard{% endblock %}</h1>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-stack">
+          {% for category, message in messages %}
+            <div class="flash flash-{{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="page-body">
+      {% block content %}{% endblock %}
+    </div>
+
+  </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

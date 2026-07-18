@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}View Data{% endblock %}
+{% block heading %}Participant Data{% endblock %}
+
+{% block content %}
+<div class="panel">
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Email</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ row.get("Name", "") }}</td>
+          <td>{{ row.get("Age", "") }}</td>
+          <td>{{ row.get("Email", "") }}</td>
+          <td>
+            {% set status = row.get("Status", "") %}
+            {% if status == "Sent" %}
+              <span class="badge badge-success">Sent</span>
+            {% elif status == "Invalid Email" %}
+              <span class="badge badge-danger">Invalid Email</span>
+            {% elif status == "Failed" %}
+              <span class="badge badge-danger">Failed</span>
+            {% else %}
+              <span class="badge badge-warning">Pending</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="5" class="empty-row">No data found in the sheet yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+.env
+credentials.json
+certificates/*.pdf
+__pycache__/
+*.pyc
+venv/
