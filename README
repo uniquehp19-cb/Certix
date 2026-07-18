@@ -1,0 +1,58 @@
+# 🎓 Certix - Certificate Generation & Email Automation
+
+## 📌 Overview
+Certix is a Flask-based web application that automates certificate generation and email delivery. It reads participant details from Google Sheets, generates personalized PDF certificates, and emails them automatically.
+
+## ✨ Features
+- Generate personalized certificates
+- Read participant data from Google Sheets
+- Automatic email sending
+- PDF certificate generation
+- Flask Web Interface
+- Bulk certificate processing
+
+## 🛠 Technologies Used
+- Python
+- Flask
+- Google Sheets API
+- ReportLab
+- HTML
+- CSS
+- JavaScript
+
+## 📂 Project Structure
+
+```
+app.py
+templates/
+static/
+utils/
+requirements.txt
+```
+
+## 🚀 Installation
+
+```bash
+git clone https://github.com/uniquehp19-cb/Certix.git
+cd Certix
+
+pip install -r requirements.txt
+
+python app.py
+```
+
+
+## 🔮 Future Enhancements
+
+- User Authentication
+- Certificate Templates
+- QR Code Verification
+- Database Integration
+
+## 👩‍💻 Author
+
+Hari Priya
+
+B.E CSE (AI & ML)
+
+Sudharsan Engineering College
