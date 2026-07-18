@@ -1,17 +1,26 @@
-# 🎓 Certix - Certificate Generation & Email Automation
+# Certix
 
-## 📌 Overview
-Certix is a Flask-based web application that automates certificate generation and email delivery. It reads participant details from Google Sheets, generates personalized PDF certificates, and emails them automatically.
+## Overview
 
-## ✨ Features
-- Generate personalized certificates
-- Read participant data from Google Sheets
-- Automatic email sending
-- PDF certificate generation
-- Flask Web Interface
+Certix is a Flask-based web application developed to automate the process of certificate generation and email distribution. The application retrieves participant information from Google Sheets, generates personalized PDF certificates, and sends them directly to recipients through email.
+
+This project was developed to minimize manual effort and improve efficiency in managing certificates for workshops, seminars, webinars, and academic events.
+
+---
+
+## Features
+
+- Automated certificate generation
+- Personalized PDF certificate creation
+- Google Sheets integration
+- Automatic email delivery
+- User-friendly web interface
 - Bulk certificate processing
 
-## 🛠 Technologies Used
+---
+
+## Technologies Used
+
 - Python
 - Flask
 - Google Sheets API
@@ -20,39 +29,66 @@ Certix is a Flask-based web application that automates certificate generation an
 - CSS
 - JavaScript
 
-## 📂 Project Structure
+---
+
+## Project Structure
 
 ```
-app.py
-templates/
-static/
-utils/
-requirements.txt
+Certix
+│
+├── app.py
+├── requirements.txt
+├── templates/
+├── static/
+├── utils/
+└── README.md
 ```
 
-## 🚀 Installation
+---
+
+## Installation
+
+Clone the repository:
 
 ```bash
 git clone https://github.com/uniquehp19-cb/Certix.git
+```
+
+Navigate to the project directory:
+
+```bash
 cd Certix
+```
 
+Install the required packages:
+
+```bash
 pip install -r requirements.txt
+```
 
+Run the application:
+
+```bash
 python app.py
 ```
 
+---
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
-- User Authentication
-- Certificate Templates
-- QR Code Verification
-- Database Integration
+- QR Code verification
+- Certificate validation portal
+- Multiple certificate templates
+- User authentication
+- Database integration
 
-## 👩‍💻 Author
+---
+
+## Author
 
 Hari Priya
 
-B.E CSE (AI & ML)
+Bachelor of Engineering  
+Computer Science and Engineering (Artificial Intelligence & Machine Learning)
 
 Sudharsan Engineering College
